@@ -14,7 +14,22 @@
 - Execute migrations with `php bin/console doctrine:migrations:migrate`
 - Load the fixtures with `php bin/console doctrine:fixtures:load`
 - Launch the server with `symfony serve`
-- Go to `http://localhost:8000` and enjoy the app
+- Go to `http://localhost:8000`
+
+## Usage
+
+- Create a contact form with the following fields: name, email, question `http://localhost:8000/contact`
+- Retrieve the list of contacts requests with the email you entered `http://localhost:8000/contact/contact-request`
+- Create an account `http://localhost:8000/register`
+- Sign in `http://localhost:8000/login`
+- Create a contact form with the following fields: name, email, question `http://localhost:8000/contact`
+- Retrieve the list of all contacts requests before and after you created your account `http://localhost:8000/contact/contact-request`
+
+## Fake data
+
+- You can use the following credentials to sign in as an admin: `admin@gmail.com` | `password`
+- You can use the following credentials to sign in as a user: `user1|2|3|..10@gmail.com` | `password`
+- You can use the following credentials to search contact requests from user who hasn't account : `random-user1|2|..5@gmail.com`
 
 ## Features
 
