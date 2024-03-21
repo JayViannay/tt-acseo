@@ -1,9 +1,7 @@
-<h1 align="center">Welcome to Contact App | Technical Test Acseo 👋</h1>
+<h1 align="center">Welcome to Contact App | Technical Test 💻</h1>
 <p>
- This project is a technical test for the company Acseo. The goal is to create a contact form with Symfony framework. Follow the instructions below to read the instructions of the test.
+ This project is a technical test for the company Acseo. The goal is to create a contact form with Symfony framework and generate a JSON file for each contact request.
 </p>
-
-> https://github.com/acseo/contact-form
 
 ## Usage
 
