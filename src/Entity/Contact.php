@@ -51,6 +51,9 @@ class Contact
     #[ORM\Column]
     private ?bool $isEdited = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $jsonFile = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -167,6 +170,18 @@ class Contact
     public function setIsEdited(bool $isEdited): static
     {
         $this->isEdited = $isEdited;
+
+        return $this;
+    }
+
+    public function getJsonFile(): ?string
+    {
+        return $this->jsonFile;
+    }
+
+    public function setJsonFile(?string $jsonFile): static
+    {
+        $this->jsonFile = $jsonFile;
 
         return $this;
     }

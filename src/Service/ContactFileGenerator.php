@@ -6,7 +6,7 @@ use App\Entity\Contact;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
-class ContactRequestFileGenerator
+class ContactFileGenerator
 {
     private $serializer;
     private $params;
@@ -17,7 +17,7 @@ class ContactRequestFileGenerator
         $this->params = $params;
     }
 
-    public function generateJsonFile(Contact $contact): void 
+    public function generateJsonFile(Contact $contact): string 
     {
         // Convert Contact object to JSON
         $jsonData = $this->serializer->serialize($contact, 'json', ['groups' => 'contact']);
@@ -35,5 +35,22 @@ class ContactRequestFileGenerator
     
         // Save JSON file
         file_put_contents($storagePath.'/'.$fileName, $jsonData);
+
+        return $fileName;
+    }
+    
+    public function removeJsonFile(Contact $contact): void
+    {
+        if ($contact->getJsonFile()) {
+            $filePath = $this->getJsonFilePath($contact);
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+        }
+    }
+
+    private function getJsonFilePath(Contact $contact): string
+    {
+        return $this->params->get('kernel.project_dir').'/var/contact_requests/'.$contact->getJsonFile();
     }
 }

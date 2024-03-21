@@ -39,7 +39,8 @@
                 <p class="text-info"><strong>Send on:</strong> {{ request.updatedAt|date('D, d M Y H:i') }}</p>
                 {% else %}
                 <p class="text-warning"><strong>Response:</strong> No response yet</p>
-                <a href="{{ path('app_contact_edit', { id : request.id }) }}">✏️ Edit</a>
+                <a href="{{ path('app_contact_edit', { id : request.id }) }}">✏️</a>
+                <a href="{{ path('app_contact_delete', { id : request.id }) }}" class="float-end">🗑️</a>
                 {% endif %}
             </li>
             {% endfor %}
