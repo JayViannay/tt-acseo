@@ -40,6 +40,7 @@
 - User with the role `ROLE_ADMIN` can archive a contact
 
 - For all new contact, a JSON file is created in the `var/contact_requests` directory with the contact data (name, email, question, created_at) 
+- After an user edited his contact, the JSON file is updated with the new data
 
 ## Author
 
