@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Find Contact Requests{% endblock %}
+
+{% block body %}
+<section class="container mt-5">
+    <div class="text-center mt-3 mb-5">
+        <h1 class="text-white">Find All Your Contact Requests</h1>
+    </div>
+
+    {% if form is defined %}
+    <div class="form">
+        {{ form_start(form, {'attr': {'class': 'form'}}) }}
+        <div class="row text-center mb-4">
+            <div class="col-md-4 mx-auto">
+                {{ form_row(form.email, {'attr': {'class': 'form-control bg-secondary text-white', 'placeholder': 'Your Email'}}) }}
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+    {% endif %}
+
+    {% if contacts is not empty %}
+    <div class="list mt-5">
+        <ul class="list-unstyled">
+            {% for request in contacts %}
+            <li class="mb-3 p-3 bg-dark text-white rounded">
+                <p><strong>Request #{{ request.id }}</strong></p>
+                <p><strong>From:</strong> {{ request.email }}</p>
+                <p><strong>Question:</strong> {{ request.question }}</p>
+                {% if request.isEdited %}<p><small>Edited</small></p>{% endif %}
+                <p><strong>Send on:</strong> {{ request.createdAt|date('D, d M Y H:i') }}</p>
+                {% if request.reply %}
+                <p class="text-info"><strong>Response:</strong> {{ request.reply }}</p>
+                <p class="text-info"><strong>From:</strong>@CustomerService</p>
+                <p class="text-info"><strong>Send on:</strong> {{ request.updatedAt|date('D, d M Y H:i') }}</p>
+                {% else %}
+                <p class="text-warning"><strong>Response:</strong> No response yet</p>
+                <a href="{{ path('app_contact_edit', { id : request.id }) }}">✏️ Edit</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <div class="text-center mt-5">
+        <p class="text-white">No contact requests found</p>
+    </div>
+    {% endif %}
+
+</section>
+{% endblock %}

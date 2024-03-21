@@ -1,0 +1,47 @@
+/*  
+    The style of my app is inspired by github dark mode
+*/
+
+/* General */
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar-custom {
+    background-color: #24292e; /* GitHub dark background */
+    border-bottom: 1px solid #444d56; /* Slight border for depth */
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #adbac7; /* GitHub dark text color */
+}
+.navbar-custom .nav-link.active,
+.navbar-custom .nav-link:focus,
+.navbar-custom .nav-link:hover {
+    color: #f9f9f9; /* Brighter color for hover and active */
+}
+
+/* Home */
+.hero-section {
+    color: #adbac7;
+    background-color: #2d333b;
+    border-radius: 8px;
+    padding: 40px;
+    margin-top: 20px;
+}
+.hero-section h1 {
+    color: #f9f9f9;
+}
+.hero-section p {
+    font-size: 18px;
+}
+.hero-section .btn-primary {
+    background-color: #238636;
+    border-color: #238636;
+}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show Contact{% endblock %}
+
+{% block body %}
+<section class="container mt-5">
+    <div class="text-center mt-3 mb-5">
+        <h1 class="text-white">📩 Show Contact</h1>
+    </div>
+    <div class="card bg-dark text-white mb-3">
+        <div class="card-header">
+            <h5 class="card-title">Contact #{{ contact.id }} Details:</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text"><strong>From:</strong> {{ contact.fullname }}</p>
+            <p class="card-text"><strong>Email:</strong> {{ contact.email }}</p>
+            <p class="card-text"><strong>Received On:</strong> {{ contact.createdAt|date('Y-m-d H:i:s') }}</p>
+            <p class="card-text"><strong>Question:</strong> {{ contact.question }}</p>
+        </div>
+        {% if contact.reply %}
+        <div class="card-body">
+            <p class="card-text"><strong>Response:</strong> {{ contact.reply }}</p>
+            <p class="card-text"><strong>Send On:</strong> {{ contact.updatedAt|date('Y-m-d H:i:s') }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <div class="text-center">
+        <a href="{{ path('app_admin_contact_archived') }}" class="btn btn-light">Back to list</a>
+    </div>
+</section>
+{% endblock %}

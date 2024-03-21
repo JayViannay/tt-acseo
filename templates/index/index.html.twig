@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome to my technical test!{% endblock %}
+
+{% block body %}
+<section class="container">
+    <div class="hero-section text-center">
+        <h1>Welcome to my Technical Test for Acseo 🚀</h1>
+        <p>This small web app has been developed to address client requests efficiently. You can send contact requests whether you're logged in or not.</p>
+        
+        <h2>Explore Your Pathways</h2>
+        <p>Depending on your current status, there are several pathways you can take:</p>
+        
+        <h3>1. I Don't Have an Account</h3>
+        <p>If you don't have an account, you can still send multiple contact requests and track them using a form and your email. This way, you won't miss out on communicating your needs to us. 📧</p>
+        
+        <h3>2. I Have an Account</h3>
+        <p>Once you've created an account and logged in, you can send as many contact requests as you wish. Tracking your requests is just a click away, making it super easy to follow up on your inquiries. 🔒</p>
+        
+        <h3>3. I Sent Requests Before Creating an Account</h3>
+        <p>If you've previously sent one or more contact requests without an account, no worries! You can create an account using the same email address, and all your past requests will be there for you, accessible with just one click. 🔄</p>
+        
+        <h3>Admin Pathway</h3>
+        <p>For administrators, logging in provides access to the list of contact requests. You can respond to or archive these requests as needed, ensuring smooth communication and management. 🔐</p>
+        <a href="{{ path('app_contact_form') }}" class="btn btn-primary mt-3">Start now! 🚀</a>
+    </div>
+</section>
+{% endblock %}
